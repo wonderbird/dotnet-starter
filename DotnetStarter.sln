@@ -15,9 +15,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "misc", "misc", "{7CF31C68-F
 		.gitpod.yml = .gitpod.yml
 		.github\dependabot.yml = .github\dependabot.yml
 		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
-		tools\dupfinder.bat = tools\dupfinder.bat
-		tools\dupfinder.sh = tools\dupfinder.sh
-		tools\dupfinder.xslt = tools\dupfinder.xslt
 		LICENSE = LICENSE
 		README.md = README.md
 	EndProjectSection

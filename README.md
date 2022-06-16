@@ -92,75 +92,69 @@ dotnet build
 dotnet test
 
 # If you like continuous testing then use the dotnet file watcher to trigger your tests
-dotnet watch -p ./RomanNumerals.Logic.Tests test
+dotnet watch -p ./DotnetStarter.Logic.Tests test
 
 # As an alternative, run the tests with coverage and produce a coverage report
-rm -r RomanNumerals.Logic.Tests/TestResults && \
+rm -r DotnetStarter.Logic.Tests/TestResults && \
   dotnet test --no-restore --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput='./TestResults/coverage.cobertura.xml' && \
-  reportgenerator "-reports:RomanNumerals.Logic.Tests/TestResults/*.xml" "-targetdir:report" "-reporttypes:Html;lcov" "-title:RomanNumerals"
+  reportgenerator "-reports:DotnetStarter.Logic.Tests/TestResults/*.xml" "-targetdir:report" "-reporttypes:Html;lcov" "-title:DotnetStarter"
 open report/index.html
 ```
 
 ### Before Creating a Pull Request ...
 
-... apply code formatting rules
+#### Apply code formatting rules
 
 ```shell
 dotnet format
 ```
 
-... and check code metrics using [metrix++](https://github.com/metrixplusplus/metrixplusplus)
+#### Check Code Metrics
 
-```shell
-# Collect metrics
-metrix++ collect --std.code.complexity.cyclomatic --std.code.lines.code --std.code.todo.comments --std.code.maintindex.simple -- .
+... check code metrics using [metrix++](https://github.com/metrixplusplus/metrixplusplus)
 
-# Get an overview
-metrix++ view --db-file=./metrixpp.db
+- Configure the location of the cloned metrix++ scripts
+  ```shell
+  export METRIXPP=/path/to/metrixplusplus
+  ```
 
-# Apply thresholds
-metrix++ limit --db-file=./metrixpp.db --max-limit=std.code.complexity:cyclomatic:5 --max-limit=std.code.lines:code:25:function --max-limit=std.code.todo:comments:0 --max-limit=std.code.mi:simple:1
-```
+- Collect metrics
+  ```shell
+  python "$METRIXPP/metrix++.py" collect --std.code.complexity.cyclomatic --std.code.lines.code --std.code.todo.comments --std.code.maintindex.simple -- .
+  ```
+
+- Get an overview
+  ```shell
+  python "$METRIXPP/metrix++.py" view --db-file=./metrixpp.db
+  ```
+
+- Apply thresholds
+  ```shell
+  python "$METRIXPP/metrix++.py" limit --db-file=./metrixpp.db --max-limit=std.code.complexity:cyclomatic:5 --max-limit=std.code.lines:code:25:function --max-limit=std.code.todo:comments:0 --max-limit=std.code.mi:simple:1
+  ```
 
 At the time of writing, I want to stay below the following thresholds:
 
-```shell
+```text
 --max-limit=std.code.complexity:cyclomatic:5
 --max-limit=std.code.lines:code:25:function
 --max-limit=std.code.todo:comments:0
 --max-limit=std.code.mi:simple:1
 ```
 
-I allow generated files named `*.feature.cs` to exceed these thresholds.
-
 Finally, remove all code duplication. The next section describes how to detect code duplication.
 
-## Identify Code Duplication
+### Remove Code Duplication Where Appropriate
 
-The `tools\dupfinder.bat` or `tools/dupfinder.sh` file calls
-the [JetBrains dupfinder](https://www.jetbrains.com/help/resharper/dupFinder.html) tool and creates an HTML report of
-duplicated code blocks in the solution directory.
+To detect duplicates I use the [CPD Copy Paste Detector](https://pmd.github.io/latest/pmd_userdocs_cpd.html)
+tool from the [PMD Source Code Analyzer Project](https://pmd.github.io/latest/index.html).
 
-In order to use the `dupfinder` you need to globally install
-the [JetBrains ReSharper Command Line Tools](https://www.jetbrains.com/help/resharper/ReSharper_Command_Line_Tools.html)
-On Unix like operating systems you also need [xsltproc](http://xmlsoft.org/XSLT/xsltproc2.html), which is pre-installed
-on macOS.
-
-From the folder containing the `.sln` file run
+If you have installed PMD by download & unzip, replace `pmd` by `./run.sh`.
+The [homebrew pmd formula](https://formulae.brew.sh/formula/pmd) makes the `pmd` command globally available.
 
 ```sh
-tools\dupfinder.bat
+pmd cpd --minimum-tokens 50 --language cs --files .
 ```
-
-or
-
-```sh
-tools/dupfinder.sh
-```
-
-respectively.
-
-The report will be created as `dupfinder-report.html` in the current directory.
 
 # References
 
@@ -176,7 +170,9 @@ The report will be created as `dupfinder-report.html` in the current directory.
 * Microsoft: [Use code coverage for unit testing](https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-code-coverage?tabs=linux)
 * GitHub: [coverlet-coverage / coverlet](https://github.com/coverlet-coverage/coverlet)
 * GitHub: [danielpalme / ReportGenerator](https://github.com/danielpalme/ReportGenerator)
-* JetBrains s.r.o.: [dupFinder Command-Line Tool](https://www.jetbrains.com/help/resharper/dupFinder.html)
+* GitHub: [metrix++](https://github.com/metrixplusplus/metrixplusplus)
+* [CPD Copy Paste Detector](https://pmd.github.io/latest/pmd_userdocs_cpd.html)
+* [PMD Source Code Analyzer Project](https://pmd.github.io/latest/index.html).
 * Scott Hanselman: [EditorConfig code formatting from the command line with .NET Core's dotnet format global tool](https://www.hanselman.com/blog/editorconfig-code-formatting-from-the-command-line-with-net-cores-dotnet-format-global-tool)
 * [EditorConfig.org](https://editorconfig.org)
 * GitHub: [dotnet / roslyn - .editorconfig](https://github.com/dotnet/roslyn/blob/master/.editorconfig)
