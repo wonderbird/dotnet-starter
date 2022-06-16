@@ -164,13 +164,13 @@ The [homebrew pmd formula](https://formulae.brew.sh/formula/pmd) makes the `pmd`
 pmd cpd --minimum-tokens 50 --language cs --files .
 ```
 
-# References
+## References
 
-## .NET Core
+### .NET Core
 
 * GitHub: [aspnet / Hosting / samples / GenericHostSample](https://github.com/aspnet/Hosting/tree/2.2.0/samples/GenericHostSample)
 
-## Code Quality
+### Code Quality
 
 * Continuous Testing
     * Scott
