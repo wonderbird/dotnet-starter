@@ -23,13 +23,14 @@ an [Open Source License](https://www.jetbrains.com/community/opensource/) for th
 
 **Attention:**
 
-The contained `.editorconfig` brings formatting configuration and static code analysis rules. Violating these rules will fail your build.
-You can delete or adapt this file to get more flexible rules.
+The contained `.editorconfig` brings formatting configuration and static code analysis rules. Violating these rules will
+fail your build. You can delete or adapt this file to get more flexible rules.
 
 Additional folders, files and configuration:
 
 - DotnetStarter.Logic - is a DLL project for business logic
-- DotnetStarter.Logic.Tests - is the corresponding xUnit test project, configured with static code rules allowing underscores in test names (GlobalSuppressions.cs)
+- DotnetStarter.Logic.Tests - is the corresponding xUnit test project, configured with static code rules allowing
+  underscores in test names (GlobalSuppressions.cs)
 - .github\dependabot.yml - configuration for the GitHub Dependabot.
 - .github\workflows\dotnet.yml - automatic builds using GitHub actions.
 
@@ -42,28 +43,36 @@ in the badges section above, the textual description in this README.md file and 
 1. Change the LICENSE to your needs
 
 2. Renaming from `DotnetStarter` to ...
-   - rename the `.sln`, the contained projects and the root namespaces to match your new project
-   - adapt the test entry in the `.github/workflow/dotnet.yml` file
-   - adapt the test directory in the `.gitpod.yml` file
+    - rename the `.sln`, the contained projects and the root namespaces to match your new project
+    - adapt the test entry in the `.github/workflow/dotnet.yml` file
+    - adapt the test directory in the `.gitpod.yml` file
 
-3. If you have a [coveralls.io](https://coveralls.io) account, add the new project and replace the corresponding `wonderbird/dotnet-starter` entries above by your Github name and the name of this project.
+3. If you have a [coveralls.io](https://coveralls.io) account, add the new project and replace the
+   corresponding `wonderbird/dotnet-starter` entries above by your Github name and the name of this project.
 
 4. If you have a [CodeClimate (Quality)](https://codeclimate.com) account,
-   - add the new project and replace the corresponding `wonderbird/dotnet-starter` entries above by your Github name and the name of this project
-   - get the `CC_TEST_REPORTER_ID` from the [CodeClimate](https://codeclimate.com) test coverage settings and set it as a repository secret in your Github project
+    - add the new project and replace the corresponding `wonderbird/dotnet-starter` entries above by your Github name
+      and the name of this project
+    - get the `CC_TEST_REPORTER_ID` from the [CodeClimate](https://codeclimate.com) test coverage settings and set it as
+      a repository secret in your Github project
 
 5. If you have a [CodeScene](https://codescene.io) account,
-   - add the new project and trigger an analysis
-   - in the [CodeScene](https://codescene.io) status badges configuration, tick the checboxes next to Code Health and System Mastery in order to make the badges visible to the public
-   - in the badges section above, replace the [CodeScene](https://codescene.io) project number `13371` by the number of your project
+    - add the new project and trigger an analysis
+    - in the [CodeScene](https://codescene.io) status badges configuration, tick the checboxes next to Code Health and
+      System Mastery in order to make the badges visible to the public
+    - in the badges section above, replace the [CodeScene](https://codescene.io) project number `13371` by the number of
+      your project
 
 6. Delete all badges from above, which you don't need
 
-7. Commit and push in order to trigger a build. Then check whether all badges work as expected, i.e. click them and check whether they redirect to the correct projects.
+7. Commit and push in order to trigger a build. Then check whether all badges work as expected, i.e. click them and
+   check whether they redirect to the correct projects.
 
 ### Quick-Start
 
-Click the [![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/wonderbird/dotnet-starter) badge (also above) to launch a web IDE.
+Click
+the [![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/wonderbird/dotnet-starter)
+badge (also above) to launch a web IDE.
 
 If that does not work for you or if you'd like to have the project on your local machine, then continue reading.
 
@@ -164,15 +173,18 @@ pmd cpd --minimum-tokens 50 --language cs --files .
 ## Code Quality
 
 * Continuous Testing
-  * Scott Hanselman: [Command Line: Using dotnet watch test for continuous testing with .NET Core 1.0 and XUnit.net](https://www.hanselman.com/blog/command-line-using-dotnet-watch-test-for-continuous-testing-with-net-core-10-and-xunitnet)
-  * Steve Smith (Ardalis): [Automate Testing and Running Apps with dotnet watch](https://ardalis.com/automate-testing-and-running-apps-with-dotnet-watch/)
+    * Scott
+      Hanselman: [Command Line: Using dotnet watch test for continuous testing with .NET Core 1.0 and XUnit.net](https://www.hanselman.com/blog/command-line-using-dotnet-watch-test-for-continuous-testing-with-net-core-10-and-xunitnet)
+    * Steve Smith (
+      Ardalis): [Automate Testing and Running Apps with dotnet watch](https://ardalis.com/automate-testing-and-running-apps-with-dotnet-watch/)
 * Microsoft: [Use code coverage for unit testing](https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-code-coverage?tabs=linux)
 * GitHub: [coverlet-coverage / coverlet](https://github.com/coverlet-coverage/coverlet)
 * GitHub: [danielpalme / ReportGenerator](https://github.com/danielpalme/ReportGenerator)
 * GitHub: [metrix++](https://github.com/metrixplusplus/metrixplusplus)
 * [CPD Copy Paste Detector](https://pmd.github.io/latest/pmd_userdocs_cpd.html)
 * [PMD Source Code Analyzer Project](https://pmd.github.io/latest/index.html).
-* Scott Hanselman: [EditorConfig code formatting from the command line with .NET Core's dotnet format global tool](https://www.hanselman.com/blog/editorconfig-code-formatting-from-the-command-line-with-net-cores-dotnet-format-global-tool)
+* Scott
+  Hanselman: [EditorConfig code formatting from the command line with .NET Core's dotnet format global tool](https://www.hanselman.com/blog/editorconfig-code-formatting-from-the-command-line-with-net-cores-dotnet-format-global-tool)
 * [EditorConfig.org](https://editorconfig.org)
 * GitHub: [dotnet / roslyn - .editorconfig](https://github.com/dotnet/roslyn/blob/master/.editorconfig)
 * Check all the badges on top of this README
