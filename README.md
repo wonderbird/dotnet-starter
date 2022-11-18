@@ -114,7 +114,11 @@ open report/index.html
 #### Apply code formatting rules
 
 ```shell
-dotnet format
+# Install https://csharpier.io globally, once
+dotnet tool install -g csharpier
+
+# Format code
+dotnet csharpier .
 ```
 
 #### Check Code Metrics
