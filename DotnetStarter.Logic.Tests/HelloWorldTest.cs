@@ -1,10 +1,9 @@
 using Xunit;
 
-namespace DotnetStarter.Logic.Tests
+namespace DotnetStarter.Logic.Tests;
+
+public class HelloWorldTest
 {
-    public class HelloWorldTest
-    {
-        [Fact]
-        public void Hello_ReturnsWorld() => Assert.Equal("World!", HelloWorld.Hello());
-    }
+    [Fact]
+    public void Hello_ReturnsWorld() => Assert.Equal("World!", HelloWorld.Hello());
 }

@@ -1,7 +1,6 @@
-namespace DotnetStarter.Logic
+namespace DotnetStarter.Logic;
+
+public class HelloWorld
 {
-    public class HelloWorld
-    {
-        public static string Hello() => "World!";
-    }
+    public static string Hello() => "World!";
 }
