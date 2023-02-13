@@ -30,12 +30,13 @@ Additional folders, files and configuration:
 ### Creating a New Project From this Template
 
 After having forked this starter project, you'll need to adapt the project names inside this solution, fix **the links**
-in the badges section above, the textual description in this README.md file and - if using
-[CodeClimate (Quality)](https://codeclimate.com) - add the `CC_TEST_REPORTER_ID` to the github project secrets:
+in the badges section above and some documentation:
 
-1. Change the LICENSE to your needs
+1. Change the README.md to your needs
 
-2. Renaming from `DotnetStarter` to ...
+2. Change the LICENSE to your needs
+
+3. Rename `DotnetStarter` to match your new project
     - rename the `.sln`, the contained projects and the root namespaces to match your new project
     - adapt the test entry in the `.github/workflow/dotnet.yml` file
     - adapt the test directory in the `.gitpod.yml` file
