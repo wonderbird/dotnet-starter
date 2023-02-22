@@ -51,7 +51,7 @@ If that does not work for you or if you'd like to have the project on your local
 
 ### Prerequisites
 
-To compile, test and run this project the latest [.NET Core SDK](https://dotnet.microsoft.com/download) is required on
+To compile, test and run this project the [.NET 6.0.x SDK](https://dotnet.microsoft.com/download) is required on
 your machine. For calculating code metrics I recommend [metrix++](https://github.com/metrixplusplus/metrixplusplus).
 This requires python.
 
