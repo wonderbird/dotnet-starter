@@ -75,14 +75,14 @@ dotnet test
 
 ```shell
 # If you like continuous testing then use the dotnet file watcher to trigger your tests
-dotnet watch -p ./ExpectationsOfCSharp.Tests test
+dotnet watch -p ./DotnetStarter.Logic.Tests test
 ```
 
 ```shell
 # As an alternative, run the tests with coverage and produce a coverage report
-rm -r ExpectationsOfCSharp.Tests/TestResults && \
+rm -r DotnetStarter.Logic.Tests/TestResults && \
   dotnet test --no-restore --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput='./TestResults/coverage.cobertura.xml' && \
-  reportgenerator "-reports:ExpectationsOfCSharp.Tests/TestResults/*.xml" "-targetdir:report" "-reporttypes:Html;lcov" "-title:DotnetStarter"
+  reportgenerator "-reports:DotnetStarter.Logic.Tests/TestResults/*.xml" "-targetdir:report" "-reporttypes:Html;lcov" "-title:DotnetStarter"
 open report/index.html
 ```
 
